@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+
+import { decrementCounter, incrementCounter } from '../../store/actions';
 
 import { Wrapper, Buttons, Card } from './styles';
 
-const Counter = () => {
-  const [count, setCount] = useState(0);
-
-  const decrement = () => setCount(count - 1);
-  const increment = () => setCount(count + 1);
-
+const Counter = ({ decrement, increment, count }) => {
   return (
     <Wrapper>
       <Card>
@@ -22,4 +20,15 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+const mapStateToProps = ({ count }) => {
+  return { count };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: () => dispatch(incrementCounter()),
+    decrement: () => dispatch(decrementCounter())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

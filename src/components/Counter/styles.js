@@ -38,4 +38,3 @@ export const Buttons = styled.div`
     font-size: 48px;
   }
 `;
-

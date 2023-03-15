@@ -10,3 +10,7 @@ export const incrementCounter = () => ({
 export const decrementCounter = () => ({
   type: COUNTER_ACTIONS.DECREMENT
 });
+
+export const MAGICIAN_ACTIONS = {
+  GUESS: 'guess'
+};
